@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * check_cycle - function to check if a linked list contains a cycle
  * @list: linked list to check
@@ -12,12 +11,14 @@ int check_cycle(listint_t *list)
 
 	if (!list)
 		return (0);
-		while (slow != fast)
+	while (fast && fast->next)
 	{
-		if (!fast || !fast->next)
-			return (0);
 		slow = slow->next;
 		fast = fast->next->next;
+
+		if (slow == fast)
+			return (1);
 	}
-	return (1);
+	return (0);
 }
+
