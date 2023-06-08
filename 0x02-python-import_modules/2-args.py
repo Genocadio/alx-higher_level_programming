@@ -13,5 +13,3 @@ if __name__ == "__main__":
         print(":")
     for i, arg in enumerate(arguments, start=1):
         print("{}: {}".format(i, arg))
-
-    print()
