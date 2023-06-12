@@ -1,4 +1,5 @@
 #include "lists.h"
+
 /**
  * countNode - counts the number of nodes in a linked list
  * @head: head of the list
@@ -36,6 +37,7 @@ void assignToArray(listint_t *head, int *arr, int size)
 		i++;
 	}
 }
+
 /**
  * is_palindrome - checks if a list is a palindrome
  * @head: head of the list
@@ -47,6 +49,13 @@ int is_palindrome(listint_t **head)
 	int *arr = malloc(count * sizeof(int));
 
 	assignToArray(*head, arr, count);
+
+	if (count % 2 == 1)
+	{
+		int middle = count / 2;
+
+		free(arr[middle]);
+	}
 
 	int i = 0;
 	int j = count - 1;
