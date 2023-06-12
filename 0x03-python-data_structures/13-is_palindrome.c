@@ -1,67 +1,72 @@
 #include "lists.h"
-/**
- * countNode - counts the number of nodes in a linked list
- * @head: head of the list
- * Return: number of nodes in the list
- */
-int countNode(listint_t *head)
-{
-	int count = 0;
-	listint_t *current = head;
 
-	while (current != NULL)
+listint_t *reverse_listint(listint_t **head);
+int is_palindrome(listint_t **head);
+
+/**
+ * reverse_listint - Reverses a singly-linked listint_t list.
+ * @head: A pointer to the starting node of the list to reverse.
+ *
+ * Return: A pointer to the head of the reversed list.
+ */
+listint_t *reverse_listint(listint_t **head)
+{
+	listint_t *node = *head, *next, *prev = NULL;
+
+	while (node)
 	{
-		count++;
-		current = current->next;
+		next = node->next;
+		node->next = prev;
+		prev = node;
+		node = next;
 	}
-	return (count);
+
+	*head = prev;
+	return (*head);
 }
 
 /**
- * assignToArray - assign values of list to an array
- * @head: head of the list
- * @arr: array to assign values to
- * @size: size of the array
- * Return: void
- */
-void assignToArray(listint_t *head, int *arr, int size)
-{
-	listint_t *current = head;
-	int i = 0;
-
-	while (current != NULL && i < size)
-	{
-		arr[i] = current->n;
-		current = current->next;
-		i++;
-	}
-}
-/**
- * is_palindrome - checks if a list is a palindrome
- * @head: head of the list
- * Return: 1 if the list is a palindrome, 0 otherwise
+ * is_palindrome - Checks if a singly linked list is a palindrome.
+ * @head: A pointer to the head of the linked list.
+ *
+ * Return: If the linked list is not a palindrome - 0.
+ *         If the linked list is a palindrome - 1.
  */
 int is_palindrome(listint_t **head)
 {
-	int count = countNode(*head);
-	int *arr = malloc(count * sizeof(int));
+	listint_t *tmp, *rev, *mid;
+	size_t size = 0, i;
 
-	assignToArray(*head, arr, count);
+	if (*head == NULL || (*head)->next == NULL)
+		return (1);
 
-	int i = 0;
-	int j = count - 1;
-
-	while (i < j)
+	tmp = *head;
+	while (tmp)
 	{
-		if (arr[i] != arr[j])
-		{
-			free(arr);
-			return (0);
-		}
-		i++;
-		j--;
+		size++;
+		tmp = tmp->next;
 	}
 
-	free(arr);
+	tmp = *head;
+	for (i = 0; i < (size / 2) - 1; i++)
+		tmp = tmp->next;
+
+	if ((size % 2) == 0 && tmp->n != tmp->next->n)
+		return (0);
+
+	tmp = tmp->next->next;
+	rev = reverse_listint(&tmp);
+	mid = rev;
+
+	tmp = *head;
+	while (rev)
+	{
+		if (tmp->n != rev->n)
+			return (0);
+		tmp = tmp->next;
+		rev = rev->next;
+	}
+	reverse_listint(&mid);
+
 	return (1);
 }
