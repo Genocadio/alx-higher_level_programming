@@ -1,9 +1,8 @@
 #!/usr/bin/python3
 def element_at(my_list, idx):
     while idx < (len(my_list) - 1):
-        num = my_list[idx]
-        if num > 0:
-            print("Element at index {:d} is {:d}".format(idx, num))
+        if my_list[idx] > 0:
+            return my_list[idx]
         else:
             return None
     else:
