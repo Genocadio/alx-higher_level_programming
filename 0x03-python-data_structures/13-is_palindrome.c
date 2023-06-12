@@ -46,9 +46,6 @@ int is_palindrome(listint_t **head)
 	int count = countNode(*head);
 	int *arr = malloc(count * sizeof(int));
 
-	if (arr == NULL)
-		return (0);
-
 	assignToArray(*head, arr, count);
 
 	int i = 0;
