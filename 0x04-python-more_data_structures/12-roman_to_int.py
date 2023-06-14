@@ -25,4 +25,5 @@ def roman_to_int(roman_string):
                 roman += temp
         else:
             roman += temp
-    return roman
+    if roman > 0 or roman <= 3999:
+        return roman
