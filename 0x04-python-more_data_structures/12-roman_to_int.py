@@ -5,17 +5,24 @@ def roman_to_int(roman_string):
     for letter in roman_string:
         if letter not in symbols:
             return 0
-    result = 0
+    roman = 0
     n = len(roman_string)
     for i in range(n):
-        current = values[symbols.index(roman_string[i])]
+        temp = 0
+        for j in range(7):
+            if symbols[j] == roman_string[i]:
+                temp = values[j]
+                break
         if i + 1 < n:
-            next_val = values[symbols.index(roman_string[i + 1])]
-            if current < next_val:
-                result -= current
+            next_val = 0
+            for k in range(7):
+                if symbols[k] == roman_string[i + 1]:
+                    next_val = values[k]
+                    break
+            if temp < next_val:
+                roman -= temp
             else:
-                result += current
+                roman += temp
         else:
-            result += current
-
-    return result
+            roman += temp
+    return roman
