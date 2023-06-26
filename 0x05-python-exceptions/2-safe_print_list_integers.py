@@ -2,14 +2,16 @@
 def safe_print_list_integers(my_list=[], x=0):
     count = 0
     try:
-        for i in range(x):
-            value = my_list[i]
+        iterator = iter(my_list)
+        for _ in range(x):
             try:
-                print("{:d}".format(int(value)), end=" ")
-                count += 1
-            except ValueError:
-                continue
+                value = next(iterator)
+                if isinstance(value, int):
+                    print("{:d}".format(value), end=" ")
+                    count += 1
+            except StopIteration:
+                break
         print()
-    except IndexError:
+    except TypeError:
         pass
     return count
