@@ -1,0 +1,39 @@
+5-text_indentation module
+usage
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+>>> text = "Hello. How are you? I'm fine."
+>>> text_indentation(text)
+Hello.
+<BLANKLINE>
+How are you?
+<BLANKLINE>
+I'm fine.
+<BLANKLINE>
+>>> text = "This is a test."
+>>> text_indentation(text)
+This is a test.
+<BLANKLINE>
+
+>>> text = "No new lines here"
+>>> text_indentation(text)
+No new lines here
+
+>>> text = ""
+>>> text_indentation(text)
+
+>>> text = "Sentence1.Sentence2:Sentence3?"
+>>> text_indentation(text)
+Sentence1.
+<BLANKLINE>
+Sentence2:
+<BLANKLINE>
+Sentence3?
+<BLANKLINE>
+>>> text = "     "
+>>> text_indentation(text)
+>>> text = 123
+>>> text_indentation(text)
+Traceback (most recent call last):
+    ...
+TypeError: text must be a string
