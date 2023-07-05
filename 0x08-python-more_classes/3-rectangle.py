@@ -52,7 +52,14 @@ class Rectangle:
         """Returns the printable representation of the rectangle"""
         if self.__width == 0 or self.__height == 0:
             return ("")
+        rectangle = [
+            [
+                "#" if row == 0 or row == self.__height - 1 else " "
+                for _ in range(self.__width)
+            ]
+            for row in range(self.__height)
+        ]
         rectangle_str = ""
-        for _ in range(self.__height):
-            rectangle_str += "#" * self.__width + "\n"
+        for row in rectangle:
+            rectangle_str += "".join(row) + "\n"
         return rectangle_str
