@@ -5,6 +5,7 @@
 class Rectangle:
     """Defines a class Rectangle"""
     number_of_instances = 0
+    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """Initializes a new Rectangle attributes."""
@@ -54,8 +55,9 @@ class Rectangle:
         """Returns the printable representation of the rectangle"""
         if self.__width == 0 or self.__height == 0:
             return ("")
-        rect = ['#'] * self.__width + ['\n']
-        rect = rect * (self.__height - 1) + ['#'] * self.__width
+        symbol = str(self.print_symbol)
+        rect = [symbol] * self.__width + ['\n']
+        rect = rect * (self.__height - 1) + [symbol] * self.__width
         return ''.join(rect)
 
     def __repr__(self):
