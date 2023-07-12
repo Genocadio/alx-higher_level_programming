@@ -2,13 +2,14 @@
 >>> my_list = MyList()
 >>> print(my_list)
 []
->>> my_list = MyList([5, 2, 9, 1, 7])
->>> my_list.print_sorted()
-[1, 2, 5, 7, 9]
 
->>> my_list = MyList([-3, -10, -5, -1, -7])
+>>> my_list = MyList([5, 2, 1, 7])
 >>> my_list.print_sorted()
-[-10, -7, -5, -3, -1]
+[1, 2, 5, 7]
+
+>>> my_list = MyList([-10, -5, -1, -7])
+>>> my_list.print_sorted()
+[-10, -7, -5, -1]
 
 >>> my_list = MyList([5, -2, 9, -1, 7])
 >>> my_list.print_sorted()
@@ -18,14 +19,24 @@
 >>> my_list.print_sorted()
 [42]
 
->>> my_list = MyList([3, 5, 2, 5, 1, 2])
+>>> my_list = MyList([3, 3, 2, 5, 1, 2])
 >>> my_list.print_sorted()
-[1, 2, 2, 3, 5, 5]
+[1, 2, 2, 3, 3, 5]
 
 >>> my_list = MyList([])
 >>> my_list.print_sorted()
 []
 
->>> my_list = MyList([100, 42, -5, 18, 73, 9, 0, 27, -10, 56])
+>>> my_list = MyList([100, 42, -5, 18, 73, 8, 0, 27, -10, 56])
 >>> my_list.print_sorted()
-[-10, -5, 0, 9, 18, 27, 42, 56, 73, 100]
+[-10, -5, 0, 8, 18, 27, 42, 56, 73, 100]
+
+>>> my_list = MyList([5, -2])
+>>> my_list.append(-1)
+>>> my_list.print_sorted()
+[-2, -1, 5]
+
+>>> my_list = MyList([5, -2])
+>>> my_list.append(6)
+>>> my_list.print_sorted()
+[-2, 5, 6]
