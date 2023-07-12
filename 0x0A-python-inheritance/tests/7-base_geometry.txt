@@ -1,44 +1,60 @@
 >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 >>> base_geometry = BaseGeometry()
-
 >>> base_geometry.area()
 Traceback (most recent call last):
 Exception: area() is not implemented
 
->>> base_geometry.integer_validator("age")
+>>> base_geometry.integer_validator("width", "hello")
+Traceback (most recent call last):
+TypeError: width must be an integer
+
+>>> base_geometry.integer_validator("height", True)
+Traceback (most recent call last):
+TypeError: height must be an integer
+
+>>> base_geometry.integer_validator("width", -5)
+Traceback (most recent call last):
+ValueError: width must be greater than 0
+
+>>> base_geometry.integer_validator("height", 0)
+Traceback (most recent call last):
+ValueError: height must be greater than 0
+
+>>> base_geometry.integer_validator("width", 8)
+>>> base_geometry.integer_validator("height", 6)
+
+>>> base_geometry.integer_validator("name")
 Traceback (most recent call last):
 TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
 
->>> base_geometry.integer_validator("age", 1)
-
->>> base_geometry.integer_validator("age", 0)
+>>> base_geometry.integer_validator()
 Traceback (most recent call last):
-ValueError: age must be greater than 0
+TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
->>> base_geometry.integer_validator("age", -4)
+>>> base_geometry.integer_validator("width", 10, 15)
 Traceback (most recent call last):
-ValueError: age must be greater than 0
+TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
 
->>> base_geometry.integer_validator("age", "4")
+>>> base_geometry.area(5)
 Traceback (most recent call last):
-TypeError: age must be an integer
+TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
 
->>> base_geometry.integer_validator("age", (4,))
+>>> base_geometry.area(5, 10)
 Traceback (most recent call last):
-TypeError: age must be an integer
+TypeError: BaseGeometry.area() takes 1 positional argument but 3 were given
 
->>> base_geometry.integer_validator("age", [3])
+>>> base_geometry.area((5, 10))
 Traceback (most recent call last):
-TypeError: age must be an integer
+TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
 
->>> base_geometry.integer_validator("age", True)
+>>> base_geometry.area([5, 10])
 Traceback (most recent call last):
-TypeError: age must be an integer
+TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
 
->>> base_geometry.integer_validator("age", {3, 4})
+>>> base_geometry.area({'width': 5, 'height': 10})
 Traceback (most recent call last):
-TypeError: age must be an integer
+TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
 
->>> base_geometry.integer_validator("age", None)
+>>> base_geometry.area(None)
 Traceback (most recent call last):
-TypeError: age must be an integer
+TypeError: BaseGeometry.area() takes 1 positional argument but 2 were given
