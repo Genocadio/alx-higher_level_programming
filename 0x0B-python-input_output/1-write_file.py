@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-# """This module writes a text file (UTF8)"""
+"""This module writes a text file (UTF8)"""
 
 
 def write_file(filename="", text=""):
