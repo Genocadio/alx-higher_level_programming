@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""create rectangle class"""
+"""create rectangle class that inherits from Base"""
 from base import Base
 
 
