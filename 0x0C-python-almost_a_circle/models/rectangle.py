@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """create rectangle class"""
 from base import Base
-"""importing Base class"""
 
 
 class Rectangle(Base):
@@ -9,7 +8,6 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """Initializes the class Rectangle"""
         super().__init__(id)
-        """class initialization"""
         self.width = width
         self.height = height
         self.x = x
@@ -22,7 +20,7 @@ class Rectangle(Base):
 
     @width.setter
     def width(self, value):
-        """width setter"""
+        """width setter, check if its int"""
         if type(value) != int:
             raise TypeError("width must be an integer")
         if value <= 0:
