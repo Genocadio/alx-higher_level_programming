@@ -11,6 +11,7 @@ class Rectangle(Base):
         it inherits from Base
         """
         super().__init__(id)
+        """class initialization"""
         self.width = width
         self.height = height
         self.x = x
