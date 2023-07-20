@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+"""create a class Base"""
 import json
-"""Base class module"""
 
 
 class Base:
