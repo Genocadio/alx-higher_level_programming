@@ -1,9 +1,6 @@
 #!/usr/bin/python3
+"""create rectangle class"""
 from base import Base
-"""
-Import Base class
-THis class will be inherited by all other classes
-"""
 
 
 class Rectangle(Base):
