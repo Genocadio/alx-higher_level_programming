@@ -1,11 +1,17 @@
 #!/usr/bin/python3
 from base import Base
-"""Import Base"""
+"""
+Import Base class
+THis class will be inherited by all other classes
+"""
 
 
 class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
-        """Initializes the class"""
+        """
+        Initializes the class Rectangle
+        it inherits from Base
+        """
         super().__init__(id)
         self.width = width
         self.height = height
@@ -14,12 +20,18 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """width getter"""
+        """
+        width getter
+        This will return the width
+        """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """width setter"""
+        """
+        width setter
+        This will set the width and check if width is int
+        """
         if type(value) != int:
             raise TypeError("width must be an integer")
         if value <= 0:
@@ -28,12 +40,18 @@ class Rectangle(Base):
 
     @property
     def height(self):
-        """height getter"""
+        """
+        height getter
+        This will return the height
+        """
         return self.__height
 
     @height.setter
     def height(self, value):
-        """height setter"""
+        """
+        height setter
+        This will set the height and check if height is int
+        """
         if type(value) != int:
             raise TypeError("height must be an integer")
         if value <= 0:
@@ -42,12 +60,18 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """x getter"""
+        """
+        x getter
+        This will return the x
+        """
         return self.__x
 
     @x.setter
     def x(self, value):
-        """x setter"""
+        """
+        x setter
+        This will set the x and check if x is int
+        """
         if type(value) != int:
             raise TypeError("x must be an integer")
         if value < 0:
@@ -56,12 +80,18 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """y getter"""
+        """
+        y getter
+        This will return the y
+        """
         return self.__y
 
     @y.setter
     def y(self, value):
-        """y setter"""
+        """
+        y setter
+        This will set the y and check if y is int
+        """
         if type(value) != int:
             raise TypeError("y must be an integer")
         if value < 0:
@@ -69,24 +99,38 @@ class Rectangle(Base):
         self.__y = value
 
     def area(self):
-        """Returns the area of the rectangle"""
+        """
+        This uses width and height to calculate the area
+        Returns the area of the rectangle
+        """
         return self.__width * self.__height
 
     def display(self):
-        """Prints the rectangle with the character #"""
+        """
+        This will print the rectangle
+        Prints the rectangle with the character #
+        """
         for i in range(self.__y):
             print()
         for i in range(self.__height):
             print(" " * self.__x + "#" * self.__width)
 
     def __str__(self):
-        """Returns the string representation of the rectangle"""
+        """
+        This converts the rectangle to a string
+        Returns the string representation of the rectangle
+        """
         hei = self.height
         r = f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{hei}"
         return r
 
     def update(self, *args, **kwargs):
-        """Updates the public instance attributes"""
+        """
+        alguments:
+        args: list of attributes to set
+        kwargs: dictionary of attributes to set
+        Updates the public instance attributes
+        """
         if len(args) > 0:
             if len(args) > 0:
                 self.id = args[0]
@@ -111,7 +155,10 @@ class Rectangle(Base):
                 self.y = kwargs["y"]
 
     def to_dictionary(self):
-        """Returns the dictionary representation of the rectangle"""
+        """
+        It converts the rectangle to a dictionary
+        Returns the dictionary representation of the rectangle
+        """
         return {
             "id": self.id,
             "width": self.width,
