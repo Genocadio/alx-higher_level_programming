@@ -7,8 +7,8 @@ from models.base import Base
 class TestBase(unittest.TestCase):
     """Test Base class"""
     def test_with_provided_id(self):
-        obj1 = Base(10)
-        self.assertEqual(obj1.id, 10)
+        obj1 = Base(11)
+        self.assertEqual(obj1.id, 11)
 
     def test_without_provided_id(self):
         """Test without provided id"""
@@ -21,27 +21,27 @@ class TestBase(unittest.TestCase):
 
     def test_with_multiple_provided_ids(self):
         """Test with multiple provided ids"""
-        obj5 = Base(100)
-        obj6 = Base(200)
-        obj7 = Base(300)
-        self.assertEqual(obj5.id, 100)
-        self.assertEqual(obj6.id, 200)
-        self.assertEqual(obj7.id, 300)
+        obj5 = Base(30)
+        obj6 = Base(220)
+        obj7 = Base(31)
+        self.assertEqual(obj5.id, 30)
+        self.assertEqual(obj6.id, 220)
+        self.assertEqual(obj7.id, 31)
 
     def test_mix_of_provided_and_non_provided_ids(self):
         """Test mix of provided and non provided ids"""
         obj8 = Base()
-        obj9 = Base(500)
+        obj9 = Base(550)
         obj10 = Base()
         self.assertEqual(obj8.id, 1)
-        self.assertEqual(obj9.id, 500)
+        self.assertEqual(obj9.id, 550)
         self.assertEqual(obj10.id, 2)
 
     def test_to_json_string(self):
         """Test converting a list of dictionaries to JSON"""
-        list_dicts = [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]
+        list_dicts = [{'x': 2, 'width': 10, 'id': 1, 'height': 7, 'y': 8}]
         json_string = Base.to_json_string(list_dicts)
-        expcted_json = '[{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]'
+        expcted_json = '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]'
         self.assertEqual(json_string, expcted_json)
 
         """Test converting an empty list to JSON"""
@@ -52,9 +52,9 @@ class TestBase(unittest.TestCase):
 
     def test_from_json_string(self):
         """Test converting JSON to a list of dictionaries"""
-        json_string = '[{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]'
+        json_string = '[{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]'
         list_dicts = Base.from_json_string(json_string)
-        expected_list = [{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}]
+        expected_list = [{"x": 2, "width": 10, "id": 1, "height": 7, "y": 8}]
         self.assertEqual(list_dicts, expected_list)
 
         """Test converting an empty JSON to an empty list"""
