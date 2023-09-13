@@ -9,7 +9,7 @@ module.exports = class Rectangle {
 
   print () {
     for (let i = 0; i < this.height; i++) {
-      console.log('\n');
+      console.log('');
       for (let j = 0; j < this.width; j++) {
         console.log('X');
       }
