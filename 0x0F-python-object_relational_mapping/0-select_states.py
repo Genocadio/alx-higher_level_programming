@@ -5,14 +5,14 @@ import MySQLdb
 import sys
 
 
-def get_states(username, password, database_name):
+def get_states(username, password, dbname):
     """function that lists all states from the database
     @param username: username of sql user
     @param password: password of sql user
-    @param database_name: name of database
+    @param dbname: name of database
     """
     db = MySQLdb.connect(host="localhost", port=3306, user=username,
-                         passwd=password, db=database_name)
+                         passwd=password, db=dbname)
     cursor = db.cursor()
     cursor.execute("SELECT * FROM states ORDER BY states.id")
     rows = cursor.fetchall()
@@ -28,6 +28,6 @@ if __name__ == "__main__":
         sys.exit(1)
     username = sys.argv[1]
     password = sys.argv[2]
-    database_name = sys.argv[3]
+    dbname = sys.argv[3]
 
-    get_states(username, password, database_name)
+    get_states(username, password, dbname)
