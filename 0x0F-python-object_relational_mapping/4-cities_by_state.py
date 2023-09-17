@@ -11,8 +11,9 @@ def getcity(username, password, database_name):
                              passwd=password, db=database_name)
 
         cursor = db.cursor()
-        sql_query = "SELECT * FROM cities ORDER BY cities.id"
-        cursor.execute(sql_query)
+        cursor.execute("SELECT cities.id, cities.name, states.name FROM cities\
+                INNER JOIN states ON cities.state_id = states.id\
+                ORDER BY cities.id ASC")
         rows = cursor.fetchall()
 
         for row in rows:
