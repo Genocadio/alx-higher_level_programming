@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
+
 def del_Astate(username, password, dbname):
     """delete state with a"""
     db_url = f"mysql://{username}:{password}@localhost:3306/{dbname}"
