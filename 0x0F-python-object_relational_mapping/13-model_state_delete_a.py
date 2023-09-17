@@ -14,7 +14,8 @@ def del_Astate(username, password, dbname):
     session = Session()
 
     try:
-        states_to_delete = session.query(State).filter(State.name.like("%a%")).all()
+        states_to_delete = session.query(State).filter(State.name.like("%a%"))\
+            .all()
         for state in states_to_delete:
             session.delete(state)
         session.commit()
