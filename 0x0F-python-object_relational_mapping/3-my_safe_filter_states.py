@@ -16,7 +16,7 @@ def filter_states(username, password, dbname, stte):
         print(i)
     cur.close()
     db.close()
-    
+
 
 if __name__ == '__main__':
     username = argv[1]
