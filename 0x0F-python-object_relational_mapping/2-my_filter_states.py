@@ -1,5 +1,4 @@
-#!/usr/bin/env python3
-#!/usr/bin/
+#!/usr/bin/python3
 """module that lists all states from the database"""
 import MySQLdb
 import sys
