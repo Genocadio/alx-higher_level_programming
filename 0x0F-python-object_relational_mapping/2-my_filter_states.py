@@ -4,15 +4,15 @@ import MySQLdb
 import sys
 
 
-def search_states(username, password, dbname, state_name):
+def search_states(username, password, dbname, stte):
     """function that lists all states from the database"""
     db = MySQLdb.connect(host="localhost", port=3306, user=username,
                          passwd=password, db=dbname)
 
     cursor = db.cursor()
 
-    sql_query = "SELECT * FROM states WHERE name = %s ORDER BY states.id"
-    cursor.execute(sql_query, (state_name,))
+    sqry = "SELECT * FROM states WHERE name LIKE BINARY '{}'".format(stte)
+    cursor.execute(sqry)
 
     rows = cursor.fetchall()
 
@@ -30,6 +30,6 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     dbname = sys.argv[3]
-    state_name = sys.argv[4]
+    stte = sys.argv[4]
 
-    search_states(username, password, dbname, state_name)
+    search_states(username, password, dbname, stte)
