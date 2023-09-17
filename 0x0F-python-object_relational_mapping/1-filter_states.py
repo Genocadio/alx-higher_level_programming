@@ -7,10 +7,12 @@ import sys
 
 def get_Nstates(username, password, database_name):
     """function that lists all states from the database"""
-    db = MySQLdb.connect(host="localhost", port=3306, user=username, passwd=password, db=database_name)
+    db = MySQLdb.connect(host="localhost", port=3306, user=username,
+                         passwd=password, db=database_name)
 
     cursor = db.cursor()
-    cursor.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY states.id")
+    cursor.execute("SELECT * FROM states WHERE name\
+                LIKE BINARY 'N%' ORDER BY id ASC")
     rows = cursor.fetchall()
     for row in rows:
         print(row)
