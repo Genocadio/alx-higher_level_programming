@@ -25,7 +25,6 @@ def get_states(username, password, database_name):
 
 if __name__ == "__main__":
     if len(sys.argv) != 4:
-        print("Usage: ./list_states.py <username> <password> <database_name>")
         sys.exit(1)
     username = sys.argv[1]
     password = sys.argv[2]
