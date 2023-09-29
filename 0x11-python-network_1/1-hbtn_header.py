@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-''' script that take URL senda a request  and displays the value of the 
+''' script that take URL senda a request  and displays the value of the
 X-Request-Id variable found in the header of the respons
 '''
 import urllib.request
